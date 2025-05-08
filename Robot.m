@@ -1,13 +1,13 @@
-classdef Robot3dof
+classdef Robot
     properties
         dof           %Degrees of freedom
         q             %Simbolic vector of articulation variables
-        dhParameters  %Denavit-Hartenberg parameters
-        H             %Transformation matrices for each joint [q d a alpha]
+        dhParameters  %Denavit-Hartenberg parameters [q d a alpha]
+        H             %Transformation matrices for each joint referred to the 0 axis
     end
 
     methods
-        function obj = Robot3dof(dof, dhParameters)
+        function obj = Robot(dof, dhParameters)
             if nargin > 0
                 obj.dof = dof;
                 obj.q = sym('q', [1, dof], 'real');
